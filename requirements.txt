@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pydantic
+argon2
+passlib
+python-jose
