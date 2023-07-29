@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Twitter Clone Sign-in</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tweetle</title>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <h1>Twitter Clone Sign-in</h1>
-        <form id="signinForm">
-            <label>Username:</label>
-            <input type="text" id="username">
-            <br>
-            <label>Password:</label>
-            <input type="password" id="password">
-            <br>
-            <button type="submit">Sign In</button>
-        </form>
-        <button id="test-login">Test</button>
-        <button id="sign-out">Sign out</button>
+    <body style="display: flex; height: 100vh; justify-content: center; align-items: center; flex-direction: column; gap: 30px;">
+        <h1 style="margin-bottom: 10%; font-size: 60px;">Tweetle</h1>
 
-        <script src="./script.js"></script>
+        <button class="btn-blue" onclick="window.location.href = './signup.html'">Create account</button> 
+        <button class="btn-white" onclick="window.location.href = './login.html'">Log in</button>
     </body>
 </html>
