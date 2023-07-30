@@ -1,6 +1,3 @@
-fastapi
-uvicorn
-pydantic
-argon2
-passlib
-python-jose
+django
+djangorestframework
+django-cors-headers
