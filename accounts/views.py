@@ -1,8 +1,49 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import HttpResponse, render, redirect
+from django.contrib.auth import forms
+from django.contrib import auth
 from django.views import View
 
 # Create your views here.
 
-class TestRoute(View):
+class TestView(View):
     def get(self, request):
-        return HttpResponse("<h1>Works</h1>")
+        if request.user.is_authenticated:
+            return HttpResponse(f"Hello {request.user.username}!")
+        else:
+            return HttpResponse("Not logged in")
+
+class LoginView(View):
+    def get(self, request):
+        form = forms.AuthenticationForm()
+        return render(request, "login.html", {"form": form})
+    
+    def post(self, request):
+        form = forms.AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = auth.authenticate(
+                username = form.cleaned_data.get("username"), 
+                password = form.cleaned_data.get("password")
+            )
+            if user is not None:
+                auth.login(request, user)
+                return redirect("home") 
+        
+        return render(request, "login.html", {"form": form})
+
+class LogoutView(View):
+    def get(self, request):
+        auth.logout(request)
+        return redirect("home")
+
+class SignupView(View):
+    def get(self, request):
+        form = forms.UserCreationForm()
+        return render(request, "signup.html", {"form": form})
+    
+    def post(self, request):
+        form = forms.UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+        
+        return render(request, "signup.html", {"form": form})
