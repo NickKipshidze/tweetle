@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse, render, redirect
-from django.contrib.auth import forms
 from django.contrib import auth
 from django.views import View
+from . import forms
 
 # Create your views here.
 
@@ -14,11 +14,11 @@ class TestView(View):
 
 class LoginView(View):
     def get(self, request):
-        form = forms.AuthenticationForm()
+        form = forms.LogInForm()
         return render(request, "login.html", {"form": form})
     
     def post(self, request):
-        form = forms.AuthenticationForm(request, data=request.POST)
+        form = forms.LogInForm(request, data=request.POST)
         if form.is_valid():
             user = auth.authenticate(
                 username = form.cleaned_data.get("username"), 
@@ -37,11 +37,11 @@ class LogoutView(View):
 
 class SignupView(View):
     def get(self, request):
-        form = forms.UserCreationForm()
+        form = forms.SignUpForm()
         return render(request, "signup.html", {"form": form})
     
     def post(self, request):
-        form = forms.UserCreationForm(request.POST)
+        form = forms.SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("login")
