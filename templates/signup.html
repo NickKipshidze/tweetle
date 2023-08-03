@@ -1,6 +1,20 @@
-<h1>Signup</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-</form>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tweetle</title>
+        <link rel="icon" href="{% static 'favicon.png' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body class="flex-center" style="height: 100vh; gap: 20px;">
+        <h1>Sign Up</h1>
+        <form method="post" style="margin: 40px;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="margin-top: 30px; align-self: center;">Sign Up</button>
+        </form>
+    </body>
+</html>
