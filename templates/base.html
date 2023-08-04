@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tweetle</title>
+        <link rel="icon" href="{% static 'favicon.png' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% block head %}
+        {% endblock head %}
+    </head>
+    <body style="background-color: #F4F8FB;">
+        <header class="nav-bar">
+            <h2 style="display: flex; align-items: center; gap: 10px;"><img style="height: 30px;" src="{% static 'favicon.png' %}" alt="Logo">Tweetle</h2>
+            {% if username is not None %}
+                <a href="/{{ username }}">Profile</a>
+            {% else %}
+                <a href="/login">Profile</a>
+            {% endif %}
+            <a href="/">Explore</a>
+            <a href="/logout">Log Out</a>
+            {% block header %}
+            {% endblock header %}
+        </header>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>

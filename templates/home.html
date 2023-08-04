@@ -8,11 +8,38 @@
         <title>Tweetle</title>
         <link rel="icon" href="{% static 'favicon.png' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body style="display: flex; height: 100vh; justify-content: center; align-items: center; flex-direction: column; gap: 30px;">
-        <h1 style="margin-bottom: 10%; font-size: 60px;">Tweetle</h1>
+        <style>
+            body { justify-content: space-between; }
 
-        <button class="btn-blue" onclick="parent.location='signup'">Create account</button> 
-        <button class="btn-white" onclick="parent.location='login'">Log in</button>
+            div { width: 50vw; }
+
+            img { width: 50vw; }
+
+            @media only screen and (max-width: 1000px) {
+                body {
+                    justify-content: center !important;
+                }
+
+                div {
+                    width: 90vw !important;
+                }
+
+                img {
+                    width: 0vw !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="flex-center" style="height: 100vh; flex-direction: row;">
+        <img src="{% static 'lohp_en_1302x955.png' %}" style="height: 100vh; object-fit: cover;">
+        <div class="flex-center" style="align-items: flex-start; padding: 30px; gap: 30px;">
+            <h1 style="font-size: 60px; font-weight: 300;">Tweetle</h1>
+            <h1 style="margin-bottom: 10%; font-size: 60px; font-weight: 900;">Happening now</h1>
+
+            <h2 style="margin-bottom: 10%; font-size: 30px; font-weight: 900;">Join Tweetle today.</h2>
+
+            <button class="btn-blue" onclick="parent.location='signup'">Create account</button> 
+            <button class="btn-white" onclick="parent.location='login'">Log in</button>
+        </div>
     </body>
 </html>

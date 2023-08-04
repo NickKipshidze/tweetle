@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block head %}
+    <style>
+        .profile-banner {
+            width: 100vw;
+            height: 20vh;
+            background-color: #70C8F8;
+            border-bottom: 2px solid #dfe5e9;
+        }
+
+        .profile-banner > img {
+            height: 20vh;
+            margin-left: 2%;
+            margin-top: 20vh;
+            transform: translateY(-50%);
+            border-radius: 20%;
+            background-color: white;
+            border: 2px solid #dfe5e9;
+        }
+    </style>
+{% endblock head %}
+
+{% block body %}
+    <div class="profile-banner">
+        <img src="{% static 'favicon.png' %}" alt="">
+    </div>
+
+    <div style="display: flex; align-items: center; height: 7vh; justify-content: flex-end; background-color: #ffffff; border-bottom: 2px solid #dfe5e9;">
+        {% if edit %}
+            <button style="margin: 30px;">Edit Profile</button>
+        {% endif %}
+    </div>
+
+    <div style="padding: 30px;">
+        <h1>@{{ profile_username }}</h1>
+        <p>Tweetle user</p>
+        <br>
+        {% if edit %}
+            <h3>Hey! This is your own Tweetle account. Maybe in the future we can add some stats in here.</h3>
+        {% else %}
+            <h3>Hey! This is someone's Tweetle account. Maybe in the future we can add some stats in here.</h3>
+        {% endif %}
+    </div>
+{% endblock body %}
