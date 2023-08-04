@@ -1,16 +1,10 @@
-from django.shortcuts import HttpResponse, render, redirect
+from django.shortcuts import HttpResponse, render, redirect, get_object_or_404
 from django.contrib import auth
 from django.views import View
+from . import models
 from . import forms
 
 # Create your views here.
-
-class TestView(View):
-    def get(self, request):
-        if request.user.is_authenticated:
-            return HttpResponse(f"Hello {request.user.username}!")
-        else:
-            return HttpResponse("Not logged in")
 
 class LoginView(View):
     def get(self, request):
@@ -26,7 +20,7 @@ class LoginView(View):
             )
             if user is not None:
                 auth.login(request, user)
-                return redirect("home") 
+                return redirect(f"/{user}")
         
         return render(request, "login.html", {"form": form})
 
@@ -47,3 +41,21 @@ class SignupView(View):
             return redirect("login")
         
         return render(request, "signup.html", {"form": form})
+
+class ProfileView(View):
+    def get(self, request, username):
+        user = get_object_or_404(models.User, username=username)
+        username = None
+        edit = False
+        
+        if request.user.is_authenticated and user.username == request.user.username:
+            edit = True
+        
+        if request.user.is_authenticated:
+            username = request.user.username
+            
+        return render(request, "profile.html", {
+            "username": username,
+            "profile_username": user.username,
+            "edit": edit
+        })
