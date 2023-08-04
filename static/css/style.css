@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
 }
 
 .flex-center {
@@ -12,6 +12,19 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.nav-bar {
+    display: flex;
+    width: 100vw;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid #dfe5e9;
+}
+
+.nav-bar > * {
+    padding: 10px;
 }
 
 button:hover { background-color: #CFD9DE; }
@@ -70,4 +83,10 @@ input {
     border-radius: 5px;
     border: 2px solid #cfd9ded0;
     font-size: 15px;
+}
+
+a {
+    color: #000000;
+    font-size: 1.5em;
+    text-decoration: none;
 }
