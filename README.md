@@ -1,7 +1,11 @@
 # tweetle
 Twitter clone made with Python Django.
 
-### Running the code
+## Progress
+
+![](./static/progress.png)
+
+## Running the code
 
 In the terminal run:
 
