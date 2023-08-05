@@ -85,6 +85,14 @@ input {
     font-size: 15px;
 }
 
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
 a {
     color: #000000;
     font-size: 1.5em;
