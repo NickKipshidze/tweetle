@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+{% block head %}
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .post-container {
+            display: flex;
+            min-width: 50vw;
+            padding: 15px;
+            gap: 5px;
+            flex-direction: column;
+            border: 2px solid #dfe5e9;
+            border-radius: 5px;
+        }
+    </style>
+{% endblock head %}
+
+{% block body %}
+    <div style="display: flex; flex-direction: column; align-items: center; min-width: 50vw; gap: 30px; padding: 30px; background-color: #F4F8FB; border-left: 2px solid #dfe5e9; border-right: 2px solid #dfe5e9;">
+        <h1>Create a New Tweet</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.content }}
+            {{ form.author }}
+            <button type="submit">Create Tweet</button>
+        </form>
+        {% for post in tweets %}
+            <div class="post-container">
+                <h3>{{ post.author }}</h3>
+                <p>{{ post.content }}</p>
+            </div>
+        {% endfor %}
+    <div>
+{% endblock body %}
