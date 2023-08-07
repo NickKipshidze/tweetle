@@ -8,8 +8,15 @@
         <title>Tweetle</title>
         <link rel="icon" href="{% static 'favicon.png' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+            body { height: 100vh; }
+
+            @media only screen and (max-width: 500px) {
+                body { margin-top: 50px; height: auto; }
+            }
+        </style>
     </head>
-    <body class="flex-center" style="height: 100vh; gap: 20px;">
+    <body class="flex-center" style="gap: 20px;">
         <h1>Create your account</h1>
         <form method="post" style="margin: 40px;">
             {% csrf_token %}
