@@ -1,6 +1,8 @@
 # Tweetle
 Twitter clone made with Python Django.
 
+No Tweetle is not a spelling mistake. Twitter was too plain so I went with Tweet**le** which is more *epic*.
+
 ## Progress
 
 ![](./static/progress.png)
