@@ -5,23 +5,23 @@ No Tweetle is not a spelling mistake. Twitter was too plain so I went with Tweet
 
 ## Progress
 
-![](./static/progress.png)
+![progress](./static/progress.png)
 
 ## Features
 
-> - Create new account
-> - Log into accounts
-> - Make a new tweet
-> - View other tweets
-> - View user profiles
+- Create new account
+- Log into accounts
+- Make a new tweet
+- View other tweets
+- View user profiles
 
 ## Todo
 
-> - User profile picture/banner/bio
-> - User followers/followings/likes
-> - Tweets comments/likes/shares
-> - Tweet file attachments
-> - Better website
+- User profile picture/banner/bio
+- User followers/followings/likes
+- Tweets comments/likes/shares
+- Tweet file attachments
+- Better website
 
 ## Running the code
 
